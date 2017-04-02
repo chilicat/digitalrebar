@@ -81,8 +81,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     # Admin nodes eat themselves without swap
     #
-    base.vm.provision "shell", path: "scripts/increase_swap.sh"
-    base.vm.provision "shell", path: "quickstart.sh"
+    #base.vm.provision "shell", path: "scripts/increase_swap.sh"
+		base.vm.provision "shell", path: "quickstart.sh",  args: "--con-dhcp --con-provisioner --admin-ip=192.168.99.100/24"
     # check external interface
     base.trigger.after :up do
       run "rebar ping -E https://#{ADMIN_IP} -U rebar -P rebar1"

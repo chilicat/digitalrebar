@@ -260,7 +260,10 @@ rebar() {
 validate_tools
 
 if [[ ! -e 'digitalrebar' ]] ; then
-    git clone https://github.com/digitalrebar/digitalrebar
+    git clone https://github.com/chilicat/digitalrebar.git
+		cd digitalrebar
+		git checkout -b vagrant-hacks
+		cd ..
 else
     echo "NOTE: Digital Rebar directory detected, NOT cloning or updating code."
 fi
